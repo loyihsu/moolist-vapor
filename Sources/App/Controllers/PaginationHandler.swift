@@ -5,7 +5,6 @@
 //
 
 import Foundation
-import Combine
 
 class PaginationHandler {
     let sheets = GetGoogleSheets(rawUrl: csvUrl)
