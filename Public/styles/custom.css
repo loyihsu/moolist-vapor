@@ -30,14 +30,14 @@ h1, h2 {
   height: 150px;
   border-radius: 300px;
   background: url(/img/ic.svg) no-repeat;
-  background-size: 100% 100%;
-  background-color: whitesmoke;
+  background-size: 155% 150%;
+  background-color: white;
   background-position: center;
   transition: all 0.3s ease-in-out;
 }
 .ys:hover {
-  background-color: lightgray;
-  background-size: 107% 107%;
+  background-color: whitesmoke;
+  background-size: 190% 190%;
 }
 
 .logo {
