@@ -10,7 +10,3 @@ struct Book {
     var title: String
     var author: String
 }
-
-struct Booklist: Codable {
-    var books: [String]
-}

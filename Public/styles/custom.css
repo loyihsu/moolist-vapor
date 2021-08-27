@@ -5,6 +5,10 @@ body {
   user-select: none;          /* Likely future */      
 }
 
+h1, h2 {
+    padding: 18pt 0pt;
+}
+
 .card {
   transition: all 0.3s;
   transform: scale(0.99);
@@ -25,7 +29,7 @@ body {
   width: 150px;
   height: 150px;
   border-radius: 300px;
-  background: url(img/ic.svg) no-repeat;
+  background: url(/img/ic.svg) no-repeat;
   background-size: 100% 100%;
   background-color: whitesmoke;
   background-position: center;
@@ -42,7 +46,7 @@ body {
   
   margin: auto;
 
-  background: url(img/logo.svg) no-repeat;
+  background: url(/img/logo.svg) no-repeat;
   background-size: 100% 100%;
 }
 

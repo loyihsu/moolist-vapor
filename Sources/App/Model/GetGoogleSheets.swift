@@ -27,7 +27,7 @@ class GetGoogleSheets {
             }
         }
         return output.sorted(by: {
-            $0.title < $1.title
+            $0.author == $1.author ? $0.title < $1.title : $0.author < $1.author
         })
     }
 }

@@ -1,0 +1,9 @@
+#extend("base"):
+    #export("pagecontent"):
+        <div class="container centered centerArea">
+          <i class="fas fa-dizzy die-logo"></i><br><br>
+          <h1>欸？你怎麼在這？</h1>
+          <p>這邊沒有內容呦！<br>
+        </div>
+    #endexport
+#endextend

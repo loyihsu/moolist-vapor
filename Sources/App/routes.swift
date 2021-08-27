@@ -1,27 +1,42 @@
 import Vapor
 
-let sheets = GetGoogleSheets(rawUrl: csvUrl)
+let pagination = PaginationHandler()
 
 func routes(_ app: Application) throws {
     app.get { req -> EventLoopFuture<View> in
-        if let result = sheets, let items = processrResults(books: result.fetch()) {
-            return req.view.render("showdata", ["title": "Readmoo 書單", "data": items])
+        if !pagination.pages.isEmpty {
+            return req.view.render("showdata", ["title": "Readmoo 書單", "data": pagination.pages[0],
+                                                "pageidx": "1", "pagecount": "\(pagination.pages.count)",
+                                                "nextlink": "/pages/2", "bookcount": "\(pagination.bookcount)"])
         }
         return req.view.render("notfound", ["title": "Readmoo 書單"])
     }
-}
 
-let itemCount = 24
+    app.get("pages", ":id") { req -> EventLoopFuture<View> in
+        if !pagination.pages.isEmpty {
+            if let id = Int(req.parameters.get("id") ?? "1") {
+                if id > 0 && id < pagination.pages.count + 1 {
+                    var previousLink: String?
+                    if id > 1 {
+                        if id == 2 {
+                            previousLink = "/"
+                        } else {
+                            previousLink = "/pages/\(id-1)"
+                        }
+                    }
+                    var nextLink: String?
+                    if id < pagination.pages.count {
+                        nextLink = "/pages/\(id+1)"
+                    }
 
-func processrResults(books: [Book]) -> String? {
-    guard !books.isEmpty else { return nil }
-    var output = "" //, idx = 0
-    for book in books {
-        var str = "<div class=\"card\">\n<div class=\"card-body\">"
-        str += "<h4 class=\"card-title\">" + book.title + "</h4>"
-        str += "<p class=\"card-text\">" + book.author + "</p>"
-        str += "</div></div>"
-        output += str
+                    return req.view.render("showdata", ["title": "Readmoo 書單", "data": pagination.pages[id - 1],
+                                                        "pageidx": "\(id)", "pagecount": "\(pagination.pages.count)",
+                                                        "previouslink": previousLink, "nextlink": nextLink,
+                                                        "bookcount": "\(pagination.bookcount)"])
+                }
+            }
+        }
+        return req.view.render("outofbound", ["title": "Readmoo 書單"])
     }
-    return output
 }
+

@@ -1,10 +1,33 @@
 #extend("base"):
     #export("pagecontent"):
+        <p class="centered"><small><i class="fas fa-book"></i> #(bookcount) </small></p>
         <h2 class="centered">所有書籍</h2>
         <div id="list">
             <div class="card-columns">
                 #unsafeHTML(data)
             </div>
+            <div style="text-align: center;">
+                #if(previouslink):
+                <a href="#(previouslink)">
+                    <i class="fas fa-chevron-left" style="padding: 20px"></i>
+                </a>
+                #else:
+                <i class="fas fa-chevron-left" style="padding: 20px"></i>
+                #endif
+                    #(pageidx) / #(pagecount)
+                #if(nextlink):
+                <a href="#(nextlink)">
+                    <i class="fas fa-chevron-right" style="padding: 20px"></i>
+                </a>
+                #else:
+                <i class="fas fa-chevron-right" style="padding: 20px"></i>
+                #endif
+            </div>
+        </div>
+        <div class="container centered" style="padding: 20pt;">
+            <div class="ys"></div>
+            <div class="logo"></div>
+            <p>Built with <a href="https://vapor.codes/">Vapor</a></p>
         </div>
     #endexport
 #endextend
