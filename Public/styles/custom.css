@@ -1,0 +1,100 @@
+body {
+  -webkit-user-select: none;  /* Chrome all / Safari all */
+  -moz-user-select: none;     /* Firefox all */
+  -ms-user-select: none;      /* IE 10+ */
+  user-select: none;          /* Likely future */      
+}
+
+.card {
+  transition: all 0.3s;
+  transform: scale(0.99);
+}
+
+.card:hover {
+  background-color: rgba(170, 209, 253, 0.6);
+  transform: scale(1);
+  border-color: gray;
+}
+
+.centered {
+  text-align:center;
+}
+
+.ys {
+  margin: auto;
+  width: 150px;
+  height: 150px;
+  border-radius: 300px;
+  background: url(img/ic.svg) no-repeat;
+  background-size: 100% 100%;
+  background-color: whitesmoke;
+  background-position: center;
+  transition: all 0.3s ease-in-out;
+}
+.ys:hover {
+  background-color: lightgray;
+  background-size: 107% 107%;
+}
+
+.logo {
+  width: 200px;
+  height: 100px;
+  
+  margin: auto;
+
+  background: url(img/logo.svg) no-repeat;
+  background-size: 100% 100%;
+}
+
+.spin {
+  animation: rotating 5s infinite;
+}
+
+@keyframes rotating {
+  from{
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(720deg);
+  }
+}
+
+#rchinese {
+  display: block;
+}
+
+#renglish {
+  display: none;
+}
+
+#rothers{
+  display: none;
+}
+
+.rbuttons {
+  text-align: center;
+}
+
+.add .plus {
+  transition: all 0.3s ease-in-out;
+}
+
+.add:hover .plus {
+  transform: rotate(90deg) scale(1.1);
+}
+
+.centerScreened {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.die-logo {
+  font-size: 75pt;
+}
+
+.centerArea {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}

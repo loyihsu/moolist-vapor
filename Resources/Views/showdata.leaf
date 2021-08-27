@@ -1,0 +1,10 @@
+#extend("base"):
+    #export("pagecontent"):
+        <h2 class="centered">所有書籍</h2>
+        <div id="list">
+            <div class="card-columns">
+                #unsafeHTML(data)
+            </div>
+        </div>
+    #endexport
+#endextend

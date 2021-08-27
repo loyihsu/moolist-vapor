@@ -1,0 +1,11 @@
+#extend("base"):
+    #export("pagecontent"):
+        <div class="container centered centerArea">
+          <i class="fas fa-dizzy die-logo"></i><br><br>
+          <h1>額，好像不太妙</h1>
+          <p>我們目前因為某些問題無法連線至我們的資料庫。<br>
+             我們的服務在我們能夠成功重新連線至我們的資料庫之前暫時無法上線。</p>
+          <p>造成不便請見諒。</p>
+        </div>
+    #endexport
+#endextend
